@@ -194,9 +194,7 @@ class UsersController extends Controller
     {
         Auth::logout();
 
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
+        $request->user()->tokens()->delete();
 
         return redirect('/');
     }

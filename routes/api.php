@@ -10,7 +10,7 @@ Route::Post('/register',[UsersController::class,"register"]);
 Route::Post('/login',[UsersController::class,"login"]);
 
 
-
+ 
 Route::group([
     "middleware"=>["auth:sanctum"]
 
@@ -24,6 +24,13 @@ Route::group([
     Route::get('/products',[ProductsController::class,"index"]);
     Route::post('/add-products',[ProductsController::class,"store"]);
     Route::put('/edit-products/{id}',[ProductsController::class,"update"]);
+
+    Route::get('/products/{productId}/comments', [ProductCommentController::class, 'index']);
+    Route::post('/products/comments', [ProductCommentController::class, 'store']);
+    Route::get('/products/comments/{id}', [ProductCommentController::class, 'show']);
+    Route::put('/products/comments/{id}', [ProductCommentController::class, 'update']);
+    Route::delete('/products/comments/{id}', [ProductCommentController::class, 'destroy']);
+
 
     Route::get('/logout',[UsersController::class,"logout"]);
     
