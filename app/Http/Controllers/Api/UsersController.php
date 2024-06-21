@@ -174,7 +174,9 @@ class UsersController extends Controller
 
     public function userDetails()
     {
-        $users = User::all();
+        $user = Auth::user();
+
+        $users = User::where('id', $user->id)->get();
         if ($users) {
             return response()->json([
                 "status" => true,

@@ -36,9 +36,11 @@ const RegisterPage = () => {
     };
 
     return (
-        <div className="col-md-8">
-            <div className="card">
-                <div className="card-header">Please fill the below fields.</div>
+        <div class="d-flex align-items-center py-4">
+        <div class="form-signin w-100 m-auto text-center">
+          <h1 class="h3 mb-3 fw-normal">Sign up for free</h1>
+
+     
                 <div className="card-body">
                     {errorMessage && (
                         <div className="alert alert-danger">

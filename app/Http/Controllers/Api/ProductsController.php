@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProductsRequest;
 use App\Http\Requests\UpdateProductsRequest;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProductsController extends Controller
@@ -17,8 +18,9 @@ class ProductsController extends Controller
 
      public function index()
 {
-    // Fetch all products along with the associated user
-    $products = Products::with('user')->get();
+    $user = Auth::user();
+
+    $products = Products::with('user')->where('user_id', $user->id)->get();
 
     if ($products->isEmpty()) {
         return response()->json([
@@ -42,6 +44,10 @@ class ProductsController extends Controller
     public function store(StoreProductsRequest $request)
     {
         // Validate and create a new product
+
+        $user = Auth::user();
+
+        
         $product = Products::create($request->validated());
 
         return response()->json([

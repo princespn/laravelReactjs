@@ -38,9 +38,17 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="col-md-8">
-            <div className="card">
-                <div className="card-header">Please fill in the fields below.</div>
+
+        <div class="d-flex align-items-center py-4">
+        <div class="form-signin w-100 m-auto text-center">
+   
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      
+
+        <div class="form-floating">
+
+
+       
                 <div className="card-body">
                     {errorMessage && (
                         <div className="alert alert-danger">
@@ -78,6 +86,7 @@ const LoginPage = () => {
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
