@@ -48,6 +48,17 @@ const LeaftMenue = () => {
                                             Products
                                         </NavLink>
                                     </li>
+                                    <li>
+                                        <NavLink
+                                            to="/categories"
+                                            className="nav-link active"
+                                            aria-current="page"
+                                        >
+                                            <i className="bi bi-table me-2"></i>
+                                            Categories
+                                        </NavLink>
+                                    </li>
+
 
                                     <p className="mt-2 mb-1 text-secondary text-small">
                                         ACCOUNTS

@@ -11,12 +11,14 @@ export const ProductPage = () => {
   const [newProduct, setNewProduct] = useState({
     name: '',
     user_id: '',
+    category_id: '',
     discription: '',
     price: 0,
   });
   const [formData, setFormData] = useState({
     name: '',
     user_id: '',
+    category_id: '',
     discription: '',
     price: 0,
   });
@@ -56,7 +58,8 @@ export const ProductPage = () => {
       const filtered = products.filter(
         (product) =>
           product.name.toLowerCase().includes(search) ||
-          product.user.name.toLowerCase().includes(search)
+          product.user.name.toLowerCase().includes(search)||
+          product.category.name.toLowerCase().includes(search)
       );
       setFilteredProducts(filtered);
     };
@@ -69,6 +72,7 @@ export const ProductPage = () => {
     setFormData({
       name: product.name,
       user_id: product.user.name,
+      category_id: product.category.name,
       discription: product.discription,
       price: product.price
     });
@@ -115,6 +119,7 @@ export const ProductPage = () => {
     setNewProduct({
       name: '',
       user_id: '',
+      category_id: '',
       discription: '',
       price: 0,
     });
@@ -184,6 +189,7 @@ export const ProductPage = () => {
                 <th>Sr. No.</th>
                 <th>Product Name</th>
                 <th>User Name</th>
+                <th>Category Name</th>
                 <th>Product Description</th>
                 <th>Product Price</th>
                 <th>Action</th>
@@ -195,6 +201,7 @@ export const ProductPage = () => {
                   <td>{index + 1}</td>
                   <td>{product.name}</td>
                   <td>{product.user.name}</td>
+                  <td>{product.category.name}</td>
                   <td>{product.discription}</td>
                   <td>{product.price}</td>
                   <td>
@@ -229,7 +236,17 @@ export const ProductPage = () => {
                     name="user_id"
                     value={formData.user_id}
                     onChange={handleChange}
-                    required
+                    readOnly
+                  />
+                </Form.Group>
+                <Form.Group controlId="categoryName">
+                  <Form.Label>Category Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="category_id"
+                    value={formData.category_id}
+                    onChange={handleChange}
+                    readOnly
                   />
                 </Form.Group>
                 <Form.Group controlId="productDescription">
@@ -285,6 +302,16 @@ export const ProductPage = () => {
                     type="text"
                     name="user_id"
                     value={newProduct.user_id}
+                    onChange={handleNewProductChange}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group controlId="newCategoryName">
+                  <Form.Label>Category Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="category_id"
+                    value={newProduct.category_id}
                     onChange={handleNewProductChange}
                     required
                   />

@@ -20,7 +20,7 @@ class ProductsController extends Controller
 {
     $user = Auth::user();
 
-    $products = Products::with('user')->where('user_id', $user->id)->get();
+    $products = Products::with('user','category')->where('user_id', $user->id)->get();
 
     if ($products->isEmpty()) {
         return response()->json([

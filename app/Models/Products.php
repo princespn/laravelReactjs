@@ -19,6 +19,7 @@ class Products extends Model
         'discription',
         'price',
         'user_id', // Assuming user_id is the foreign key
+        'category_id', // Assuming user_id is the foreign key
         // Other fields
     ];
 
@@ -30,5 +31,11 @@ class Products extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+
+    public function category()
+    {
+        return $this->belongsTo(Categories::class);
     }
 }

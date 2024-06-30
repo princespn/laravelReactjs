@@ -40,7 +40,7 @@ const LoginPage = () => {
     return (
 
         <div class="d-flex align-items-center py-4">
-        <div class="form-signin w-100 m-auto text-center">
+        <main class="form-signin w-100 m-auto text-center">
    
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
       
@@ -86,7 +86,7 @@ const LoginPage = () => {
                     </form>
                 </div>
             </div>
-        </div>
+        </main>
         </div>
     );
 };

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Api\ProductsController;
+use App\Http\Controllers\Api\CategoriesController;
 
 
 Route::Post('/register',[UsersController::class,"register"]);
@@ -30,6 +31,10 @@ Route::group([
     Route::get('/products/comments/{id}', [ProductCommentController::class, 'show']);
     Route::put('/products/comments/{id}', [ProductCommentController::class, 'update']);
     Route::delete('/products/comments/{id}', [ProductCommentController::class, 'destroy']);
+    Route::get('/category',[CategoriesController::class,"index"]);
+    Route::post('/add-category',[CategoriesController::class,"store"]);
+
+    Route::get('/edit-category/{id}',[CategoriesController::class,"update"]);
 
 
     Route::get('/logout',[UsersController::class,"logout"]);

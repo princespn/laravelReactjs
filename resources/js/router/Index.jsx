@@ -8,6 +8,7 @@ import RegisterPage from '../components/RegisterPage';
 import { DashboardPage } from '../components/DashboardPage';
 import { ProductPage } from '../components/ProductPage';
 import { LogoutPage } from '../components/LogoutPage';
+import { CategoriesPage } from '../components/CategoriesPage';
 
 
 
@@ -22,6 +23,7 @@ const Index = () => {
         <Route path='/register' element={<RegisterPage/>}>Registeration</Route>
         <Route path='/dashboard' element={<DashboardPage/>}>dashboard</Route>
         <Route path='/products' element={<ProductPage/>}>Products</Route>
+        <Route path='/categories' element={<CategoriesPage/>}>Categories</Route>
         <Route path='/logout' element={<LogoutPage/>}>Logout</Route>
         
         
